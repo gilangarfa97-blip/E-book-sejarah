@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masuknya Pergerakan Nasional Indonesia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --maroon: #641e1e;
+      --red: #9f3030;
+      --red-light: #c5544c;
+      --cream: #f4ead2;
+      --paper: #fffaf0;
+      --ink: #35251f;
+      --gold: #c99a4a;
+      --gold-light: #ead39b;
+      --brown: #70432e;
+      --shadow: 0 18px 45px rgba(61, 35, 20, .2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(159,48,48,.12), transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(201,154,74,.15), transparent 22%),
+        linear-gradient(135deg, #e8d6b2, #f8eed9 45%, #dec79d);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .17;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(88, 48, 25, .08) 0,
+          rgba(88, 48, 25, .08) 1px,
+          transparent 1px,
+          transparent 5px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(88, 48, 25, .035) 0,
+          rgba(88, 48, 25, .035) 1px,
+          transparent 1px,
+          transparent 7px
+        );
+      z-index: 20;
+    }
+
+    .book {
+      width: min(1080px, 94%);
+      min-height: 700px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border: 12px solid #52291f;
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow:
+        0 25px 70px rgba(50, 25, 15, .35),
+        inset 0 0 0 3px rgba(255,255,255,.35);
+    }
+
+    .page {
+      display: none;
+      min-height: 650px;
+      padding: 70px clamp(28px, 8vw, 95px);
+      position: relative;
+      overflow: hidden;
+      animation: pageEnter .55s ease;
+      background:
+        linear-gradient(rgba(255,250,240,.94), rgba(255,250,240,.94)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(104, 65, 28, .045) 0,
+          rgba(104, 65, 28, .045) 1px,
+          transparent 1px,
+          transparent 8px
+        );
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(123, 74, 38, .22);
+      pointer-events: none;
+    }
+
+    .page::after {
+      content: "✦";
+      position: absolute;
+      right: 35px;
+      bottom: 35px;
+      color: var(--gold);
+      font-size: 28px;
+      opacity: .55;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes pageEnter {
+      from {
+        opacity: 0;
+        transform: translateX(18px) rotateY(-5deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+      }
+    }
+
+    .cover {
+      display: none;
+      min-height: 650px;
+      place-items: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(74, 20, 20, .83), rgba(74, 20, 20, .9)),
+        radial-gradient(circle at 15% 20%, rgba(201,154,74,.5), transparent 20%),
+        radial-gradient(circle at 85% 75%, rgba(255,255,255,.12), transparent 25%),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.06) 0,
+          rgba(255,255,255,.06) 1px,
+          transparent 1px,
+          transparent 10px
+        ),
+        var(--maroon);
+    }
+
+    .cover.active {
+      display: grid;
+    }
+
+    .cover::before {
+      content: "INDONESIA • SEJARAH • PERSATUAN";
+      position: absolute;
+      top: 35px;
+      left: 0;
+      right: 0;
+      color: var(--gold-light);
+      letter-spacing: 5px;
+      font-size: .75rem;
+      opacity: .85;
+    }
+
+    .cover::after {
+      content: "✦  ❖  ✦";
+      position: absolute;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      color: var(--gold);
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .cover-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover h1 {
+      max-width: 780px;
+      margin: 22px auto;
+      color: #fff6dd;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: .95;
+      text-shadow: 3px 4px 0 rgba(0,0,0,.18);
+    }
+
+    .cover p {
+      color: #f3dca7;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+    }
+
+    h2 {
+      position: relative;
+      margin-top: 0;
+      padding: 12px 0 12px 20px;
+      color: var(--maroon);
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      line-height: 1;
+      border-left: 8px solid var(--red);
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      margin-top: 14px;
+      background: var(--gold);
+    }
+
+    h3 {
+      color: var(--red);
+      font-size: 1.7rem;
+      margin-top: 0;
+    }
+
+    p,
+    li {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .ornamen {
+      color: var(--gold);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .kolom {
+      columns: 2 280px;
+      column-gap: 45px;
+    }
+
+    .kartu {
+      position: relative;
+      padding: 22px;
+      margin: 18px 0;
+      break-inside: avoid;
+      border: 1px solid rgba(174, 128, 55, .45);
+      border-radius: 5px 14px 5px 14px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.45), transparent),
+        #fff2ce;
+      box-shadow:
+        7px 7px 0 rgba(201,154,74,.18),
+        0 8px 20px rgba(78, 45, 20, .1);
+      transition: .25s ease;
+    }
+
+    .kartu::before {
+      content: "✦";
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      color: var(--gold);
+      opacity: .55;
+    }
+
+    .kartu:hover {
+      transform: translateY(-5px) rotate(.3deg);
+      box-shadow:
+        9px 11px 0 rgba(201,154,74,.25),
+        0 15px 28px rgba(78, 45, 20, .16);
+    }
+
+    .catatan {
+      padding: 18px 22px;
+      margin: 25px 0;
+      border-left: 6px solid var(--gold);
+      background: #f8e8b9;
+      box-shadow: 5px 5px 0 rgba(201,154,74,.2);
+    }
+
+    .catatan strong {
+      color: var(--maroon);
+      display: block;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .bab-pembuka {
+      display: grid;
+      min-height: 500px;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(100,30,30,.87), rgba(100,30,30,.87)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.06) 0,
+          rgba(255,255,255,.06) 1px,
+          transparent 1px,
+          transparent 12px
+        ),
+        var(--maroon);
+      color: white;
+    }
+
+    .bab-pembuka h2 {
+      border-left: 0;
+      color: #fff3cf;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+    }
+
+    .bab-pembuka h2::after {
+      margin: 20px auto;
+    }
+
+    .bab-pembuka p {
+      color: #ead39b;
+      font-size: 1.15rem;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 35px;
+      border-left: 4px solid var(--red);
+    }
+
+    .peristiwa {
+      position: relative;
+      margin: 30px 0;
+      padding: 16px 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: rgba(255,245,216,.72);
+      transition: .25s;
+    }
+
+    .peristiwa::before {
+      content: "";
+      position: absolute;
+      left: -48px;
+      top: 18px;
+      width: 20px;
+      height: 20px;
+      border: 4px solid var(--paper);
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 3px var(--red);
+    }
+
+    .peristiwa:hover,
+    .peristiwa.open {
+      background: #ffeab1;
+      transform: translateX(5px);
+    }
+
+    .peristiwa h3 {
+      margin: 0;
+      color: var(--maroon);
+      font-size: 1.8rem;
+    }
+
+    .detail {
+      display: none;
+      margin-top: 10px;
+      padding: 14px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.5);
+    }
+
+    .peristiwa.open .detail {
+      display: block;
+    }
+
+    .alur {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 35px 0;
+    }
+
+    .alur span {
+      padding: 14px 18px;
+      border-radius: 4px 13px 4px 13px;
+      color: white;
+      background:
+        linear-gradient(135deg, var(--red), var(--maroon));
+      box-shadow: 4px 5px 0 rgba(201,154,74,.35);
+      font-weight: 700;
+    }
+
+    .alur b {
+      color: var(--gold);
+      font-size: 1.7rem;
+    }
+
+    .daftar-isi button {
+      display: block;
+      width: 100%;
+      margin: 13px 0;
+      text-align: left;
+      color: var(--maroon);
+      background: #f5dfaa;
+      box-shadow: 3px 4px 0 rgba(154, 95, 30, .2);
+    }
+
+    .quiz-question {
+      margin: 22px 0;
+      padding: 20px;
+      border-radius: 12px;
+      background: #fff2ce;
+      border: 1px solid rgba(174, 128, 55, .45);
+      box-shadow: 5px 5px 0 rgba(201,154,74,.18);
+    }
+
+    .quiz-question h3 {
+      font-size: 1.45rem;
+    }
+
+    .quiz label {
+      display: block;
+      margin: 9px 0;
+      padding: 13px;
+      border-radius: 8px;
+      background: #f3dfaf;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .quiz label:hover {
+      padding-left: 20px;
+      background: #e8c982;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .benar {
+      color: #24732c;
+    }
+
+    .salah {
+      color: var(--red);
+    }
+
+    #glossarySearch {
+      width: 100%;
+      margin: 15px 0 25px;
+      padding: 15px 18px;
+      border: 2px solid #d3ad68;
+      border-radius: 10px;
+      background: #fffdf6;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    #glossarySearch:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(159,48,48,.15);
+    }
+
+    button {
+      border: 0;
+      border-radius: 5px 14px 5px 14px;
+      padding: 13px 20px;
+      color: #382313;
+      background: linear-gradient(135deg, #e2b866, #b98736);
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #876026;
+      transition: .2s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    button:focus,
+    label:focus-within {
+      outline: 3px solid #e2a63d;
+      outline-offset: 3px;
+    }
+
+    .cover button {
+      margin-top: 20px;
+      padding: 16px 28px;
+      font-size: 1rem;
+    }
+
+    .navigasi {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 17px 25px;
+      color: white;
+      background:
+        linear-gradient(135deg, #541919, #842929);
+      border-top: 4px solid var(--gold);
+    }
+
+    .navigasi span {
+      color: #f5d78e;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .progress-wrapper {
+      height: 6px;
+      background: rgba(255,255,255,.2);
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      transition: width .3s ease;
+    }
+
+    .top-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .top-controls button {
+      padding: 9px 14px;
+      font-size: .8rem;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      color: #72523d;
+      text-align: center;
+      border-top: 1px solid #d8bd80;
+      letter-spacing: .3px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 700px) {
+      .book {
+        width: 100%;
+        margin: 0;
+        border-width: 5px;
+        border-radius: 0;
+      }
+
+      .page {
+        min-height: 700px;
+        padding: 48px 25px;
+      }
+
+      .page::before {
+        inset: 10px;
+      }
+
+      .cover h1 {
+        font-size: 3rem;
+      }
+
+      .alur {
+        display: block;
+        text-align: center;
+      }
+
+      .alur b {
+        display: block;
+        margin: 10px;
+        transform: rotate(90deg);
+      }
+
+      .navigasi {
+        padding: 14px 12px;
+      }
+
+      .navigasi button {
+        padding: 10px 12px;
+        font-size: .78rem;
+      }
+
+      .navigasi span {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="book">
+
+    <!-- HALAMAN 1 -->
+    <section class="page cover active">
+      <div class="cover-content">
+        <div class="ornamen">✦ ❖ ✦</div>
+        <p>BUKU DIGITAL SEJARAH INDONESIA</p>
+        <h1>Masuknya Pergerakan Nasional Indonesia</h1>
+        <p>Dari kesadaran kebangsaan menuju persatuan</p>
+        <button onclick="goToPage(1)">Mulai Membaca</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 2 -->
+    <section class="page">
+      <div class="top-controls">
+        <button onclick="goToPage(2)">Daftar Isi</button>
+      </div>
+
+      <div class="ornamen">❖</div>
+      <p class="eyebrow">Pengantar</p>
+      <h2>Kata Pengantar</h2>
+
+      <p>
+        Pergerakan nasional merupakan proses tumbuhnya kesadaran kebangsaan
+        masyarakat Indonesia. Perjuangan tidak lagi hanya dilakukan secara
+        kedaerahan, tetapi mulai dilakukan melalui pendidikan, pers, organisasi,
+        dan persatuan.
+      </p>
+
+      <p>
+        Buku digital ini mengajak pembaca memahami berbagai faktor yang
+        mendorong lahirnya pergerakan nasional, organisasi-organisasi perintis,
+        tokoh-tokoh penting, serta peristiwa yang memperkuat identitas bangsa
+        Indonesia.
+      </p>
+
+      <div class="catatan">
+        <strong>Cara menggunakan buku</strong>
+        Gunakan tombol “Sebelumnya” dan “Berikutnya” untuk berpindah halaman.
+        Kamu juga dapat memakai tombol panah kiri dan kanan pada keyboard.
+      </div>
+    </section>
+
+    <!-- HALAMAN 3 -->
+    <section class="page">
+      <p class="eyebrow">Navigasi Buku</p>
+      <h2>Daftar Isi</h2>
+
+      <div class="daftar-isi">
+        <button onclick="goToPage(3)">
+          Bab 1: Indonesia sebelum Pergerakan Nasional
+        </button>
+
+        <button onclick="goToPage(4)">
+          Bab 2: Faktor Pendorong
+        </button>
+
+        <button onclick="goToPage(5)">
+          Bab 3: Lahirnya Organisasi Pergerakan
+        </button>
+
+        <button onclick="goToPage(6)">
+          Bab 4: Tokoh-Tokoh Penting
+        </button>
+
+        <button onclick="goToPage(7)">
+          Bab 5: Dari Organisasi menuju Persatuan
+        </button>
+
+        <button onclick="goToPage(8)">
+          Bab 6: Menuju Sumpah Pemuda
+        </button>
+
+        <button onclick="goToPage(9)">
+          Bab 7: Garis Waktu
+        </button>
+
+        <button onclick="goToPage(10)">
+          Bab 8: Belajar Mandiri dan Kuis
+        </button>
+
+        <button onclick="goToPage(11)">
+          Glosarium
+        </button>
+
+        <button onclick="goToPage(12)">
+          Penutup dan Sumber
+        </button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 4 -->
+    <section class="page bab-pembuka">
+      <div>
+        <p class="eyebrow" style="color:#ead39b;">Bab 1</p>
+        <h2>Indonesia sebelum Pergerakan Nasional</h2>
+        <p>Memahami kondisi masyarakat sebelum lahirnya organisasi modern.</p>
+      </div>
+    </section>
+
+    <!-- HALAMAN 5 -->
+    <section class="page">
+      <p class="eyebrow">Bab 1</p>
+      <h2>Kondisi Indonesia sebelum Pergerakan Nasional</h2>
+
+      <div class="kolom">
+        <p>
+          Sebelum munculnya pergerakan nasional, masyarakat Indonesia hidup
+          dalam tekanan penjajahan. Banyak rakyat mengalami penderitaan akibat
+          pajak, kerja paksa, dan keterbatasan dalam memperoleh kehidupan yang
+          layak.
+        </p>
+
+        <p>
+          Perlawanan terhadap penjajahan telah dilakukan oleh berbagai daerah.
+          Perlawanan tersebut menunjukkan keberanian rakyat, tetapi umumnya
+          masih bersifat lokal dan belum terkoordinasi secara nasional.
+        </p>
+
+        <p>
+          Perbedaan wilayah, bahasa, dan kepentingan membuat hubungan antardaerah
+          belum berkembang menjadi kesadaran sebagai satu bangsa.
+        </p>
+
+        <p>
+          Keadaan mulai berubah ketika pendidikan, komunikasi, dan hubungan
+          antarkelompok berkembang. Muncul kelompok masyarakat yang mulai
+          memikirkan perjuangan dalam bentuk organisasi modern.
+        </p>
+      </div>
+
+      <div class="catatan">
+        <strong>Catatan penting</strong>
+        Pergerakan nasional berkembang ketika perjuangan mulai dilakukan
+        melalui organisasi dan kesadaran sebagai satu bangsa.
+      </div>
+    </section>
+
+    <!-- HALAMAN 6 -->
+    <section class="page">
+      <p class="eyebrow">Bab 2</p>
+      <h2>Faktor Pendorong Pergerakan Nasional</h2>
+
+      <div class="kartu">
+        <h3>Politik Etis dan Pendidikan</h3>
+        <p>
+          Perkembangan pendidikan melahirkan kaum terpelajar yang mampu membaca,
+          menulis, berdiskusi, dan menyebarkan gagasan kemajuan.
+        </p>
+      </div>
+
+      <div class="kartu">
+        <h3>Munculnya Kaum Terpelajar</h3>
+        <p>
+          Kaum terpelajar mulai menyadari bahwa penderitaan rakyat tidak hanya
+          perlu dilawan secara fisik, tetapi juga melalui pendidikan, organisasi,
+          dan perubahan pemikiran.
+        </p>
+      </div>
+
+      <div class="kartu">
+        <h3>Perkembangan Pers dan Komunikasi</h3>
+        <p>
+          Surat kabar dan majalah membantu menyebarkan informasi serta gagasan
+          mengenai persatuan dan kemajuan masyarakat.
+        </p>
+      </div>
+
+      <div class="kartu">
+        <h3>Pengaruh Gerakan Kebangsaan Dunia</h3>
+        <p>
+          Gerakan kebangsaan di negara lain memberi inspirasi bahwa bangsa
+          terjajah dapat memperjuangkan hak dan masa depannya.
+        </p>
+      </div>
+
+      <div class="kartu">
+        <h3>Kemenangan Jepang atas Rusia</h3>
+        <p>
+          Kemenangan Jepang atas Rusia pada 1905 menjadi salah satu pemicu
+          tumbuhnya kepercayaan diri bangsa-bangsa Asia.
+        </p>
+      </div>
+
+      <div class="catatan">
+        <strong>Istilah penting</strong>
+        Kesadaran nasional adalah kesadaran bahwa masyarakat dari berbagai
+        daerah merupakan bagian dari satu bangsa.
+      </div>
+    </section>
+
+    <!-- HALAMAN 7 -->
+    <section class="page bab-pembuka">
+      <div>
+        <p class="eyebrow" style="color:#ead39b;">Bab 3</p>
+        <h2>Lahirnya Organisasi Pergerakan</h2>
+        <p>Organisasi menjadi sarana memperluas pendidikan, gagasan, dan persatuan.</p>
+      </div>
+    </section>
+
+    <!-- HALAMAN 8 -->
+    <section class="page">
+      <p class="eyebrow">Bab 3</p>
+      <h2>Organisasi-Organisasi Perintis</h2>
+
+      <div class="kolom">
+        <div class="kartu">
+          <h3>Budi Utomo</h3>
+          <p><b>Tahun:</b> 1908</p>
+          <p>
+            Bergerak terutama dalam bidang pendidikan dan kebudayaan. Budi
+            Utomo sering diperingati sebagai salah satu tonggak Kebangkitan
+            Nasional.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Sarekat Dagang Islam</h3>
+          <p><b>Tahun:</b> 1911</p>
+          <p>
+            Pada awalnya berkembang sebagai organisasi yang menghimpun pedagang
+            dan memperkuat kerja sama di antara anggotanya.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Sarekat Islam</h3>
+          <p><b>Tahun:</b> 1912</p>
+          <p>
+            Berkembang dari Sarekat Dagang Islam dan memiliki anggota yang lebih
+            luas dengan perhatian terhadap kehidupan masyarakat.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Indische Partij</h3>
+          <p><b>Tahun:</b> 1912</p>
+          <p>
+            Mendorong persatuan dan kesadaran politik masyarakat di Hindia
+            Belanda.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Muhammadiyah</h3>
+          <p><b>Tahun:</b> 1912</p>
+          <p>
+            Berperan dalam bidang pendidikan, sosial, dan pembaruan kehidupan
+            masyarakat.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Taman Siswa</h3>
+          <p><b>Tahun:</b> 1922</p>
+          <p>
+            Mengembangkan pendidikan nasional dengan menanamkan rasa
+            kebangsaan.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Perhimpunan Indonesia</h3>
+          <p>
+            Menyebarkan gagasan nasionalisme dan kemerdekaan di kalangan pelajar
+            Indonesia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALAMAN 9 -->
+    <section class="page">
+      <p class="eyebrow">Bab 4</p>
+      <h2>Tokoh-Tokoh Penting</h2>
+
+      <div class="kolom">
+        <div class="kartu">
+          <h3>dr. Sutomo</h3>
+          <p>
+            Salah satu tokoh penting dalam berdirinya Budi Utomo dan
+            perkembangan kesadaran kebangsaan.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>dr. Wahidin Sudirohusodo</h3>
+          <p>
+            Mendorong kemajuan pendidikan dan pentingnya meningkatkan
+            pengetahuan masyarakat.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>H.O.S. Tjokroaminoto</h3>
+          <p>
+            Tokoh penting dalam perkembangan Sarekat Islam dan pergerakan
+            masyarakat.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Ernest Douwes Dekker</h3>
+          <p>
+            Dikenal juga sebagai Danudirja Setiabudi dan merupakan salah satu
+            tokoh Indische Partij.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Dr. Cipto Mangunkusumo</h3>
+          <p>
+            Tokoh pergerakan dan salah satu pendiri Indische Partij.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Ki Hadjar Dewantara</h3>
+          <p>
+            Nama lahirnya Raden Mas Soewardi Soerjaningrat. Ia berperan besar
+            dalam perkembangan pendidikan nasional.
+          </p>
+        </div>
+
+        <div class="kartu">
+          <h3>Mohammad Hatta</h3>
+          <p>
+            Tokoh pergerakan yang aktif dalam Perhimpunan Indonesia dan
+            perjuangan menuju kemerdekaan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALAMAN 10 -->
+    <section class="page">
+      <p class="eyebrow">Bab 5</p>
+      <h2>Dari Organisasi menuju Persatuan</h2>
+
+      <p>
+        Pendidikan melahirkan kesadaran. Kesadaran mendorong masyarakat
+        membentuk organisasi. Organisasi kemudian memperluas gagasan persatuan
+        dan membangun identitas nasional.
+      </p>
+
+      <div class="alur">
+        <span>Pendidikan</span>
+        <b>→</b>
+        <span>Kesadaran</span>
+        <b>→</b>
+        <span>Organisasi</span>
+        <b>→</b>
+        <span>Persatuan</span>
+        <b>→</b>
+        <span>Cita-Cita Kemerdekaan</span>
+      </div>
+
+      <div class="catatan">
+        <strong>Mengapa penting?</strong>
+        Pergerakan nasional membuktikan bahwa perjuangan dapat dilakukan melalui
+        pendidikan, pers, gagasan, organisasi, dan kerja sama.
+      </div>
+    </section>
+
+    <!-- HALAMAN 11 -->
+    <section class="page">
+      <p class="eyebrow">Bab 6</p>
+      <h2>Menuju Sumpah Pemuda</h2>
+
+      <p>
+        Kongres pemuda menjadi ruang pertemuan bagi berbagai organisasi pemuda.
+        Melalui pertemuan tersebut, gagasan tentang persatuan Indonesia semakin
+        kuat.
+      </p>
+
+      <div class="kartu">
+        <h3>Kongres Pemuda</h3>
+        <p>
+          Pertemuan antarpemuda membantu memperluas hubungan dan membangun
+          kesadaran bahwa perjuangan harus dilakukan dengan semangat persatuan.
+        </p>
+      </div>
+
+      <div class="kartu">
+        <h3>Sumpah Pemuda 1928</h3>
+        <p>
+          Kongres Pemuda II memperkuat gagasan mengenai satu tanah air, satu
+          bangsa, dan satu bahasa.
+        </p>
+        <p>
+          Peristiwa ini menjadi simbol penting persatuan pemuda Indonesia.
+        </p>
+      </div>
+
+      <div class="catatan">
+        <strong>Pesan utama</strong>
+        Persatuan menjadi kekuatan penting dalam membangun identitas nasional
+        Indonesia.
+      </div>
+    </section>
+
+    <!-- HALAMAN 12 -->
+    <section class="page">
+      <p class="eyebrow">Bab 7</p>
+      <h2>Garis Waktu Pergerakan Nasional</h2>
+
+      <p>
+        Klik setiap tahun untuk membuka penjelasan singkat.
+      </p>
+
+      <div class="timeline">
+
+        <div class="peristiwa">
+          <h3>1905</h3>
+          <div class="detail">
+            Jepang menang atas Rusia. Peristiwa ini menjadi salah satu inspirasi
+            bagi bangsa-bangsa Asia.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1908</h3>
+          <div class="detail">
+            Budi Utomo berdiri dan sering diperingati sebagai salah satu tonggak
+            Kebangkitan Nasional.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1911</h3>
+          <div class="detail">
+            Sarekat Dagang Islam berdiri sebagai organisasi yang menghimpun
+            pedagang.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1912</h3>
+          <div class="detail">
+            Sarekat Dagang Islam berkembang menjadi Sarekat Islam. Pada tahun
+            yang sama, Indische Partij dan Muhammadiyah berdiri.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1922</h3>
+          <div class="detail">
+            Taman Siswa berdiri dan mengembangkan pendidikan nasional.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1925</h3>
+          <div class="detail">
+            Perhimpunan Indonesia menggunakan nama tersebut secara resmi.
+          </div>
+        </div>
+
+        <div class="peristiwa">
+          <h3>1928</h3>
+          <div class="detail">
+            Kongres Pemuda II menghasilkan Sumpah Pemuda.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HALAMAN 13 -->
+    <section class="page">
+      <p class="eyebrow">Bab 8</p>
+      <h2>Rangkuman Materi</h2>
+
+      <div class="kartu">
+        <ul>
+          <li>Pergerakan nasional tumbuh dari kesadaran kebangsaan.</li>
+          <li>Pendidikan melahirkan kaum terpelajar.</li>
+          <li>Pers membantu menyebarkan gagasan persatuan.</li>
+          <li>Organisasi menjadi sarana perjuangan yang lebih teratur.</li>
+          <li>Budi Utomo berdiri pada tahun 1908.</li>
+          <li>Berbagai organisasi berperan dalam pendidikan, sosial, politik, dan kebudayaan.</li>
+          <li>Sumpah Pemuda tahun 1928 memperkuat identitas persatuan Indonesia.</li>
+        </ul>
+      </div>
+
+      <div class="catatan">
+        <strong>Pertanyaan refleksi</strong>
+        <ol>
+          <li>Mengapa pendidikan penting bagi pergerakan nasional?</li>
+          <li>Mengapa pers dapat membantu perjuangan?</li>
+          <li>Apa perbedaan perlawanan daerah dan pergerakan nasional?</li>
+          <li>Apa kontribusi organisasi pergerakan bagi masyarakat?</li>
+          <li>Mengapa persatuan menjadi hal penting?</li>
+          <li>Apa makna Sumpah Pemuda bagi generasi sekarang?</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- HALAMAN 14 -->
+    <section class="page">
+      <p class="eyebrow">Evaluasi</p>
+      <h2>Kuis Cepat</h2>
+
+      <div class="quiz">
+
+        <div class="quiz-question">
+          <h3>1. Pada tahun berapa Budi Utomo berdiri?</h3>
+
+          <label>
+            <input type="radio" name="q1" value="0">
+            1905
+          </label>
+
+          <label>
+            <input type="radio" name="q1" value="1">
+            1908
+          </label>
+
+          <label>
+            <input type="radio" name="q1" value="2">
+            1912
+          </label>
+
+          <div id="feedback1" class="feedback"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>2. Salah satu faktor pendorong pergerakan nasional adalah...</h3>
+
+          <label>
+            <input type="radio" name="q2" value="0">
+            Munculnya kaum terpelajar
+          </label>
+
+          <label>
+            <input type="radio" name="q2" value="1">
+            Berkurangnya pendidikan
+          </label>
+
+          <label>
+            <input type="radio" name="q2" value="2">
+            Terputusnya komunikasi
+          </label>
+
+          <div id="feedback2" class="feedback"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>3. Sarekat Dagang Islam berkembang menjadi...</h3>
+
+          <label>
+            <input type="radio" name="q3" value="0">
+            Taman Siswa
+          </label>
+
+          <label>
+            <input type="radio" name="q3" value="1">
+            Sarekat Islam
+          </label>
+
+          <label>
+            <input type="radio" name="q3" value="2">
+            Indische Partij
+          </label>
+
+          <div id="feedback3" class="feedback"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>4. Taman Siswa berdiri pada tahun...</h3>
+
+          <label>
+            <input type="radio" name="q4" value="0">
+            1908
+          </label>
+
+          <label>
+            <input type="radio" name="q4" value="1">
+            1912
+          </label>
+
+          <label>
+            <input type="radio" name="q4" value="2">
+            1922
+          </label>
+
+          <div id="feedback4" class="feedback"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>5. Sumpah Pemuda diikrarkan pada tahun...</h3>
+
+          <label>
+            <input type="radio" name="q5" value="0">
+            1912
+          </label>
+
+          <label>
+            <input type="radio" name="q5" value="1">
+            1922
+          </label>
+
+          <label>
+            <input type="radio" name="q5" value="2">
+            1928
+          </label>
+
+          <div id="feedback5" class="feedback"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>6. Apa peran utama pers dalam pergerakan nasional?</h3>
+
+          <label>
+            <input type="radio" name="q6" value="0">
+            Menyebarkan informasi dan gagasan
+          </label>
+
+          <label>
+            <input type="radio" name="q6" value="1">
+            Menghentikan komunikasi
+          </label>
+
+          <label>
+            <input type="radio" name="q6" value="2">
+            Membatasi pendidikan
+          </label>
+
+          <div id="feedback6" class="feedback"></div>
+        </div>
+
+        <button onclick="cekKuis()">Periksa Jawaban</button>
+        <div id="hasilKuis"></div>
+
+      </div>
+    </section>
+
+    <!-- HALAMAN 15 -->
+    <section class="page">
+      <p class="eyebrow">Kamus Sejarah</p>
+      <h2>Glosarium</h2>
+
+      <input
+        id="glossarySearch"
+        type="search"
+        placeholder="Cari istilah, misalnya nasionalisme..."
+      >
+
+      <div id="glossary">
+
+        <div class="kartu istilah">
+          <h3>Nasionalisme</h3>
+          <p>
+            Kesadaran dan rasa cinta terhadap bangsa serta keinginan untuk
+            memperjuangkan kepentingannya.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Kaum Terpelajar</h3>
+          <p>
+            Kelompok masyarakat yang memperoleh pendidikan dan memiliki
+            pengetahuan lebih luas.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Politik Etis</h3>
+          <p>
+            Kebijakan kolonial yang salah satunya membuka kesempatan pendidikan
+            bagi sebagian penduduk pribumi.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Pers</h3>
+          <p>
+            Media komunikasi seperti surat kabar dan majalah yang menyampaikan
+            informasi serta gagasan.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Organisasi Pergerakan</h3>
+          <p>
+            Perkumpulan yang dibentuk untuk memperjuangkan kemajuan dan
+            kepentingan bangsa.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Identitas Nasional</h3>
+          <p>
+            Ciri, nilai, dan kesadaran yang membuat suatu masyarakat merasa
+            menjadi bagian dari satu bangsa.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Kongres</h3>
+          <p>
+            Pertemuan besar yang diselenggarakan untuk membahas gagasan atau
+            kepentingan bersama.
+          </p>
+        </div>
+
+        <div class="kartu istilah">
+          <h3>Sumpah Pemuda</h3>
+          <p>
+            Ikrar persatuan pemuda Indonesia pada Kongres Pemuda II tahun 1928.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HALAMAN 16 -->
+    <section class="page">
+      <div class="ornamen">✦ ❖ ✦</div>
+      <p class="eyebrow">Penutup</p>
+      <h2>Refleksi Akhir</h2>
+
+      <p>
+        Semangat pergerakan nasional mengajarkan pentingnya pendidikan,
+        keberanian menyampaikan gagasan, kerja sama, dan persatuan.
+      </p>
+
+      <div class="kartu">
+        <h3>Apa yang dapat dipelajari generasi sekarang?</h3>
+        <p>
+          Generasi sekarang dapat belajar bahwa perubahan membutuhkan
+          pengetahuan, kepedulian, keberanian, serta kemampuan bekerja sama
+          untuk mencapai tujuan bersama.
+        </p>
+      </div>
+
+      <div class="catatan">
+        <strong>Sumber belajar</strong>
+        <p>
+          Buku teks Sejarah Indonesia Kemendikbud<br>
+          Museum Kebangkitan Nasional
+        </p>
+      </div>
+
+      <button onclick="goToPage(14)">Ulangi Kuis</button>
+      <button onclick="goToPage(2)">Kembali ke Daftar Isi</button>
+
+      <footer>
+        Masuknya Pergerakan Nasional Indonesia
+      </footer>
+    </section>
+
+    <!-- NAVIGASI -->
+    <div class="progress-wrapper">
+      <div id="progressBar"></div>
+    </div>
+
+    <div class="navigasi">
+      <button onclick="previousPage()">← Sebelumnya</button>
+
+      <span id="pageNumber">1 / 16</span>
+
+      <button onclick="nextPage()">Berikutnya →</button>
+    </div>
+
+  </main>
+
+  <script>
+    let currentPage = 0;
+
+    const pages = document.querySelectorAll(".page");
+    const pageNumber = document.getElementById("pageNumber");
+    const progressBar = document.getElementById("progressBar");
+
+    function updatePage() {
+      pages.forEach((page, index) => {
+        page.classList.toggle("active", index === currentPage);
+      });
+
+      pageNumber.textContent =
+        `${currentPage + 1} / ${pages.length}`;
+
+      const progress =
+        ((currentPage + 1) / pages.length) * 100;
+
+      progressBar.style.width = `${progress}%`;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updatePage();
+      }
+    }
+
+    function previousPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updatePage();
+      }
+    }
+
+    function goToPage(pageIndex) {
+      if (pageIndex >= 0 && pageIndex < pages.length) {
+        currentPage = pageIndex;
+        updatePage();
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "ArrowRight") {
+        nextPage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousPage();
+      }
+    });
+
+    document.querySelectorAll(".peristiwa").forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("open");
+      });
+    });
+
+    function cekKuis() {
+      const jawabanBenar = {
+        q1: "1",
+        q2: "0",
+        q3: "1",
+        q4: "2",
+        q5: "2",
+        q6: "0"
+      };
+
+      const penjelasan = {
+        q1: "Budi Utomo berdiri pada tahun 1908.",
+        q2: "Kaum terpelajar menjadi salah satu pendorong pergerakan nasional.",
+        q3: "Sarekat Dagang Islam berkembang menjadi Sarekat Islam.",
+        q4: "Taman Siswa berdiri pada tahun 1922.",
+        q5: "Sumpah Pemuda diikrarkan pada tahun 1928.",
+        q6: "Pers berperan menyebarkan informasi dan gagasan."
+      };
+
+      let skor = 0;
+
+      Object.keys(jawabanBenar).forEach((soal, index) => {
+        const pilihan = document.querySelector(
+          `input[name="${soal}"]:checked`
+        );
+
+        const feedback = document.getElementById(
+          `feedback${index + 1}`
+        );
+
+        if (!pilihan) {
+          feedback.textContent = "Belum dijawab.";
+          feedback.className = "feedback salah";
+          return;
+        }
+
+        if (pilihan.value === jawabanBenar[soal]) {
+          skor++;
+          feedback.textContent = "Benar! " + penjelasan[soal];
+          feedback.className = "feedback benar";
+        } else {
+          feedback.textContent = "Kurang tepat. " + penjelasan[soal];
+          feedback.className = "feedback salah";
+        }
+      });
+
+      const hasil = document.getElementById("hasilKuis");
+
+      let pesan;
+
+      if (skor === 6) {
+        pesan = "Sangat baik! Pemahamanmu sangat kuat.";
+      } else if (skor >= 4) {
+        pesan = "Bagus! Tinggal perkuat beberapa bagian materi.";
+      } else if (skor >= 2) {
+        pesan = "Cukup baik. Coba baca kembali timeline dan organisasi.";
+      } else {
+        pesan = "Baca kembali materi, lalu coba lagi.";
+      }
+
+      hasil.innerHTML = `
+        <div class="catatan">
+          <strong>Hasil kuis</strong>
+          <p>Skor kamu: ${skor} dari 6</p>
+          <p>${pesan}</p>
+        </div>
+      `;
+    }
+
+    document
+      .getElementById("glossarySearch")
+      .addEventListener("input", function(event) {
+        const keyword = event.target.value.toLowerCase();
+
+        document.querySelectorAll(".istilah").forEach(item => {
+          const text = item.textContent.toLowerCase();
+
+          item.style.display = text.includes(keyword)
+            ? "block"
+            : "none";
+        });
+      });
+
+    updatePage();
+  </script>
+
+</body>
+</html> 
